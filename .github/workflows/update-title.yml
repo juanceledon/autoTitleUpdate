@@ -1,0 +1,23 @@
+name: Update YouTube Title
+
+on:
+  schedule:
+    - cron: "*/20 * * * *"
+
+jobs:
+  update-title:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v3
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Instalar dependencias
+        run: npm install googleapis
+
+      - name: Ejecutar script
+        run: node index.js
