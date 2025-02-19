@@ -1,8 +1,6 @@
 name: Update YouTube Title
 
 on:
-  schedule:
-    - cron: "*/20 * * * *"
   workflow_dispatch:
 jobs:
   update-title:
