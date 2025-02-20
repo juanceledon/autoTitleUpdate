@@ -1,21 +1,29 @@
 name: Update YouTube Title
 
 on:
+  schedule:
+    - cron: "*/20 * * * *"
   workflow_dispatch:
+
 jobs:
   update-title:
     runs-on: ubuntu-latest
     steps:
-      - name: Clonar el repositorio
+      - name: Clone repo
         uses: actions/checkout@v3
 
-      - name: Instalar Node.js
+      - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Instalar dependencias
-        run: npm install googleapis
+      - name: Install dev dependencies
+        run: npm install googleapis dotenv
 
-      - name: Ejecutar script
+      - name: runScript
         run: node index.js
+        env:
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          REDIRECT_URI: ${{ secrets.REDIRECT_URI }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
