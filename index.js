@@ -21,7 +21,8 @@ const updateVideo = async () => {
     });
 
     if (result.data.items.length > 0) {
-      const stats = result.data.items[0].statistics;
+      const stats   = result.data.items[0].statistics;
+      const snippet = result.data.items[0].snippet;
 
       const newTitle = `Este video tiene ${stats.viewCount} vistas, ¿cómo lo sé?`;
 
