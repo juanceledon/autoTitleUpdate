@@ -38,7 +38,7 @@ const updateVideo = async () => {
           id: "pg_vngerTiU",
           snippet: {
             title: newTitle,
-            description: snippet.description,
+            description: snippet.description, // no change
             categoryId: 28,
           },
         },
